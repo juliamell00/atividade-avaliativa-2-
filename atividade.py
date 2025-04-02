@@ -7,7 +7,7 @@ preco = 0
 junta_pratos = ""
 junta_codigos =""
 
-
+#Exibir um menu com 7 pratos, apresentando o código do prato, nome e o preço.
 while True:
     menu = int(input(""""
     Código    Prato           |    Valor
@@ -60,23 +60,36 @@ while True:
                 prato = "Escondidinho"
                 preco = 65
                 codigo = "7"
-            
+            #Caso o código seja inválido, o sistema deve alertar o usuário e pedir novamente um código válido.
             case _:
                 print("Opção inválida")
+    #Acumular os valores de cada prato escolhido.
     soma += preco
     junta_pratos += prato + " "
     junta_codigos += codigo + " "
-
+    #O sistema deverá perguntar ao usuário se ele deseja fazer outro pedido e, se sim, permitir a adição de mais pratos ao pedido.
     continuar = input("Deseja escolher outra coisa? \nDigite 's' ou '0':").lower()
+    #Se o usuário digitar o código "0", o programa encerrará o pedido e calculará o valor total.
     if continuar == "0":
         break
 
-    
+#O sistema deve solicitar a forma de pagamento:
+#À vista (desconto de 10% sobre o valor total).
+#Cartão de crédito (acréscimo de 10% sobre o valor total).
+
 forma_de_pagamento = int(input("""
     Código \t Forma de pagamento:
     1         Á vista
     2         Cartão de Crédito
     forma de pagamento: """))
+
+#Exibir os resultados ao final:
+#A lista com os códigos e nomes dos pratos escolhidos.
+# subtotal (valor total sem acréscimo ou desconto).
+#A forma de pagamento escolhida.
+#O valor do desconto ou acréscimo aplicado.
+#O valor final a ser pago.
+
 if forma_de_pagamento == 1:
         desconto = soma * 0.10
         print(f"Subtotal: {soma}")
@@ -102,6 +115,6 @@ elif forma_de_pagamento == 2:
    
 
 print(f"Forma de pagamento: {pagamento}")
-print (f"Pratos: {junta_codigos} {junta_pratos}")
+print (f"Código dos Pratos: {junta_codigos}, Pratos escolhidos: {junta_pratos}.")
 print(f"")
    
